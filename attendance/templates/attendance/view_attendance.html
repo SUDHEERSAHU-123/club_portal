@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9; /* Light grey background */
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #4caf50; /* Green heading */
+            margin-top: 20px;
+        }
+        .attendance-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .attendance-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .status {
+            font-weight: bold;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .present {
+            background-color: #4caf50; /* Green for Present */
+        }
+        .absent {
+            background-color: #f44336; /* Red for Absent */
+        }
+    </style>
+</head>
+<body>
+    <h1>Attendance Details</h1>
+    <div class="attendance-container">
+        <div class="attendance-header">
+            <h2>Event: {{ event.name }}</h2>
+            <p>Date: {{ event.date }}</p>
+            <p>Description: {{ event.description }}</p>
+        </div>
+        <h2>Present Students</h2>
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Domain</th>
+            </tr>
+            {% for record in attendance_records %}
+                {% if record.status %}
+                    <tr>
+                        <td>{{ record.student.name }}</td>
+                        <td>{{ record.student.domain }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+        <h2>Absent Students</h2>
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Domain</th>
+            </tr>
+            {% for record in attendance_records %}
+                {% if not record.status %}
+                    <tr>
+                        <td>{{ record.student.name }}</td>
+                        <td>{{ record.student.domain }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,58 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Light grey background */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+h1 {
+    color: #333; /* Dark grey */
+    text-align: center;
+    padding: 20px;
+    background-color: #4caf50; /* Green */
+    color: white;
+}
+
+/* Table Styling */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #4caf50; /* Green */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd; /* Light grey for hover */
+}
+
+/* Button Links */
+a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: white;
+    background-color: #4caf50; /* Green */
+    border-radius: 5px;
+    margin: 5px;
+}
+
+a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

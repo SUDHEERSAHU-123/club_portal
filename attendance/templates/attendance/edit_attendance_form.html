@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Attendance for {{ event.name }}</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="event_id" value="{{ event.id }}">
+            <table>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Attendance Status</th>
+                </tr>
+                {% for record in attendance_records %}
+                    <tr>
+                        <td>{{ record.student.name }}</td>
+                        <td>
+                            <input type="checkbox" name="status_{{ record.student.id }}" {% if record.status %}checked{% endif %}>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <button type="submit" name="save_changes">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>
