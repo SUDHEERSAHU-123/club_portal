@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event List</title>
@@ -10,9 +11,13 @@
             background-color: #f4f4f9; /* Light grey background */
             margin: 0;
             padding: 0;
+            background: url("{% static 'attendance/clublogo.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+
         }
         h1 {
-            color: #4caf50;
+            color: blue;
             text-align: center;
             padding: 20px;
         }
@@ -43,17 +48,31 @@
             text-decoration: none;
             padding: 10px 15px;
             color: white;
-            background-color: #4caf50; /* Green for buttons */
+            background-color: blue;
             border-radius: 5px;
             margin: 5px;
         }
         .event-card a:hover {
-            background-color: #45a049; /* Darker green on hover */
+            background-color: skyblue;
+        }
+        header img {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 160px;
+            height: 80px;
+            border-radius: 60%; /* Makes the logo circular */
+            object-position: center; /* Centers the content of the image */
+            display: block;
         }
     </style>
 </head>
 <body>
-    <h1>Events</h1>
+    {% load static %}
+    <header>
+        <img src="{% static 'attendance/logo.jpg' %}" alt="Logo">
+        <h1>Events</h1>
+    </header>
     <div class="event-container">
         {% for event in events %}
             <div class="event-card">
@@ -62,11 +81,8 @@
                 <p>Description: {{ event.description }}</p>
                 <a href="{% url 'mark_attendance' event.id %}">Mark Attendance</a>
                 <a href="{% url 'view_attendance' event.id %}">View Attendance</a>
-                <a href="{% url 'edit_attendance' %}" style="color: white; background-color: #f0ad4e; padding: 10px; border-radius: 5px; text-decoration: none;">Edit Attendance</a>
-                <a href="/admin/attendance/attendance/" target="_blank" style="color: white; background-color: #4caf50; padding: 10px; border-radius: 5px; text-decoration: none;">Manage Attendance in Admin</a>
-
-
-
+                <a href="{% url 'edit_attendance' %}" style="color: white; background-color: orangered; padding: 10px; border-radius: 5px; text-decoration: none;">Edit Attendance</a>
+                <a href="/admin/attendance/attendance/" target="_blank" style="color: white; background-color: blue; padding: 10px; border-radius: 5px; text-decoration: none;">Manage Attendance in Admin</a>
             </div>
         {% endfor %}
         {% if events|length == 0 %}

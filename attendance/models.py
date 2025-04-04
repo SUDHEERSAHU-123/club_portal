@@ -14,13 +14,19 @@ class Student(models.Model):
     def __str__(self):
         return self.name
 
+
+
 class Event(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateField()
-    description = models.TextField(blank=True)
+    description = models.TextField()
+    image = models.ImageField(upload_to='attendance/images/', blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.name  # This will display the event name in the admin
+
+
+
 
 class Attendance(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)

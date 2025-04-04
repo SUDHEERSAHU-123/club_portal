@@ -16,32 +16,34 @@
         }
         .login-container {
             background: white;
-            padding: 20px;
+            padding: 30px; /* Added more padding for better spacing */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
+            width: 350px; /* Fixed width for consistent alignment */
         }
         h1 {
             margin-bottom: 20px;
             font-size: 24px;
-            color: #4caf50;
+            color: skyblue;
             text-align: center;
         }
         input {
             display: block;
-            width: 100%;
+            width: 90%; /* Adjusted width to leave space from the edges */
             padding: 10px;
-            margin-bottom: 15px;
+            margin: 10px auto; /* Centers inputs horizontally and adds vertical spacing */
             border: 1px solid #ccc;
             border-radius: 5px;
         }
         button {
-            background-color: #4caf50;
+            background-color: blue;
             color: white;
             padding: 10px;
             border: none;
             border-radius: 5px;
-            width: 100%;
+            width: 90%; /* Same width as input fields for alignment */
             cursor: pointer;
+            margin: 10px auto; /* Centers button horizontally */
         }
         button:hover {
             background-color: #45a049;
@@ -55,7 +57,7 @@
 </head>
 <body>
     <div class="login-container">
-        <h1>Admin Login</h1>
+        <h1>Login</h1>
         {% if messages %}
             <div class="error">
                 {% for message in messages %}
@@ -65,7 +67,7 @@
         {% endif %}
         <form method="POST">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>

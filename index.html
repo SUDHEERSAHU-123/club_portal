@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <title>Meta Developers Communities</title>
+    <link rel="stylesheet" href="main_style.css" />
+    <style>
+      .carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: 80px auto;
+        overflow: hidden;
+        padding: 20px 0;
+        z-index:1;
+      }
+      
+      .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        height: 400px;
+      }
+      
+      .carousel-image {
+        min-width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      
+      .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 16px;
+        cursor: pointer;
+        z-index: 1;
+      }
+      
+      .carousel-button:hover {
+        background: rgba(0, 0, 0, 0.8);
+      }
+      
+      .prev {
+        left: 0;
+      }
+      
+      .next {
+        right: 0;
+      }
+      .gallery-section {
+        position: relative;
+        width: 100%;
+        margin-top: 100px;
+        padding: 20px 0;
+        clear: both;
+      }
+
+      .carousel-container {
+    position: absolute;
+    max-width: max-content;
+    height: 850px;
+    top: 2500px;
+    left: 50%;
+    transform: translateX(-50%); /* Horizontal centering only */
+    overflow: hidden;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        max-width: 90%;
+        height: auto;
+        padding: 10px 0;
+        top: 100px; /* Adjusted top value for mobile view */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+
+      .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 400px;
+      }
+
+      .carousel-image {
+        min-width: 100%;
+        height: 1000px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 16px;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .carousel-button:hover {
+        background: rgba(0, 0, 0, 0.8);
+      }
+
+      .prev {
+        left: 0;
+      }
+
+      .next {
+        right: 0;
+      }
+     
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 0;
+    gap: 20px;
+    margin: 40px auto;
+    width: 80%;
+    max-width: 1200px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-item {
+    position: relative;
+    min-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9fdfe;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+  }
+
+  .carousel img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .carousel-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .info-box {
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .carousel-item:hover .info-box {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .event-date {
+    font-family: "Poppins", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 32px;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .register-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(7, 72, 160, 1) 0%, rgba(20, 47, 86, 1) 100%);
+    color: #ffffff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: "Inter", Helvetica;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .event-description {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #f0f0f0;
+    line-height: 1.4;
+  }
+</style>
+      </style>
+  </head>
+  <body>
+    {% load static %}
+    <!-- HERO SECTION (Original Design) -->
+    <div class="hero-section" id="home">
+      <div class="div">
+        <!-- Overlap group with navbar, logo, and buttons -->
+        <div class="overlap-group">
+          <a href="#contact-section">
+            <!-- "Contact Us" button -->
+            <div class="div-wrapper">
+              <div class="text-wrapper-2">Contact Us</div>
+            </div>
+          </a>
+
+          <!-- Navigation Bar (links scroll to sections) -->
+          <div class="navbar">
+            <div class="text-wrapper-3">
+              <a href="#about-us">About</a>
+            </div>
+            <div class="text-wrapper-4">
+              <a href="#pillars-of-support">Our Mentors</a>
+            </div>
+            <div class="text-wrapper-3">
+              <a href="#gallery">Gallery</a>
+            </div>
+            <div class="text-wrapper-3">
+              <a href="#events">Events</a>
+            </div>
+            <div class="text-wrapper-3">
+              <a href="#domains">Our Team</a>
+            </div>
+            <div class="text-wrapper-3">
+              <a href="#technical-domains">Domains</a>
+            </div>
+            <div class="text-wrapper-3">
+              <a href="#contact-section">Contact us</a>
+            </div>
+          </div>
+
+          <!-- MDC Logo -->
+          <img
+            class="image"
+            src="https://c.animaapp.com/FIN3YcBd/img/image-2@2x.png"
+            alt="MDC Logo"
+          />
+        </div>
+
+        <!-- Main Hero Text -->
+        <div class="text-wrapper-5">Empower Your</div>
+        <div class="dev"> Developer Journey</div>
+
+        <!-- Subheading -->
+        <p class="p">
+          Join a network of innovators, collaborate with experts, and build the future with open-source technologies
+        </p>
+
+        <!-- Hashtags / Collab / Connect images -->
+        <div class="overlap">
+          <div class="frame-2"><div class="text-wrapper-8">#BuildTogether</div></div>
+          <div class="frame-3"><div class="text-wrapper-8">#MDCInnovates</div></div>
+          <div class="frame-4"><div class="text-wrapper-8">#TechCommunity</div></div>
+          <div class="frame-5"><div class="text-wrapper-8">#Hackathons</div></div>
+          <div class="frame-6"><div class="text-wrapper-8">#Innovate</div></div>
+          
+          <div class="rectangle"></div>
+          <img
+            class="group"
+            src="https://c.animaapp.com/FIN3YcBd/img/group-2@2x.png"
+            alt="icon"
+          />
+          <img
+            class="img"
+            src="https://c.animaapp.com/FIN3YcBd/img/group-3@2x.png"
+            alt="icon"
+          />
+          <img
+            class="image-2"
+            src="https://c.animaapp.com/FIN3YcBd/img/image-3@2x.png"
+            alt="icon"
+          />
+          <img
+            class="image-3"
+            src="https://c.animaapp.com/FIN3YcBd/img/image-6@2x.png"
+            alt="icon"
+          />
+          <img
+            class="image-4"
+            src="https://c.animaapp.com/FIN3YcBd/img/image-9@2x.png"
+            alt="icon"
+          />
+          <img
+            class="image-5"
+            src="https://c.animaapp.com/FIN3YcBd/img/image-10@2x.png"
+            alt="icon"
+          />
+          <img
+            class="image-6"
+            src="https://c.animaapp.com/FIN3YcBd/img/image-11@2x.png"
+            alt="icon"
+          />
+          <img
+            class="image-7"
+            src="https://c.animaapp.com/FIN3YcBd/img/image-7@2x.png"
+            alt="icon"
+          />
+        </div>
+
+        <!-- Buttons below the hashtags -->
+        <a href="https://chat.whatsapp.com/DoLaeuVK7jZ8Eq56e0eIZ" target="_blank"> 
+        <div class="frame-9">
+          <div class="text-wrapper-11">Join Community</div>
+        </div>
+      </a>
+
+      <a href="#events">
+        <div class="frame-10">
+          <div class="text-wrapper-12">View Our Events</div>
+        </div>
+      </a>
+    
+
+       
+      </div>
+    </div>
+
+    <!-- ADDITIONAL SECTIONS BELOW -->
+    <!-- "About Us" Section -->
+    <div class="about-us" id="about-us">
+      <div class="overlap-group-wrapper">
+        <div class="overlap-group">
+          <div class="text-wrapper">Key Activities</div>
+
+          <!-- The original "About us" heading -->
+          <div class="div">About us</div>
+          <p class="unlock-your">Unlock Your Potential with Us</p>
+
+          <!-- "Pillars Of Support" heading with matching ID -->
+          <div class="text-wrapper-2" id="pillars-of-support">Pillars Of Support</div>
+
+          <img
+            class="whatsapp-image"
+            src="assets/mdc_team.jpg"
+            alt="WhatsApp"
+          />
+          <div class="overlap">
+            <p class="MDC-is-a-community">
+              MDC is a community for developers, designers, and tech enthusiasts to learn, build, and collaborate.
+              <br /><br />
+              We focus on innovation, open-source projects, and skill development across domains like UI/UX,
+              web development, competitive programming, and more.<br /><br />
+              &nbsp;&nbsp; Workshops &amp; Events to upskill<br />
+              &nbsp;&nbsp; Real-world projects with peers<br />
+              &nbsp;&nbsp; Networking &amp; Competitions
+            </p>
+            <div class="ellipse"></div>
+            <div class="ellipse-2"></div>
+            <div class="ellipse-3"></div>
+          </div>
+          <p class="p">
+            Join our club and elevate your skills with exclusive access to hackathons, coding challenges, workshops.
+          </p>
+          <p class="text-wrapper-3">
+            Engage in hackathons, coding challenges, workshops, and tech talks to enhance your skills and knowledge.
+          </p>
+          <div class="feature-list">
+            <div class="heading">Hackathons</div>
+            <div class="rectangle"></div>
+            <p class="paragraph">
+              Immerse yourself in intense coding challenges and innovative problem-solving.
+            </p>
+          </div>
+          <div class="feature-list-2">
+            <div class="heading">Coding Challenges</div>
+            <div class="rectangle"></div>
+            <p class="paragraph">
+              Sharpen your coding skills through exciting and competitive challenges.
+            </p>
+          </div>
+          <div class="feature-list-3">
+            <div class="heading">Workshops</div>
+            <div class="rectangle"></div>
+            <p class="paragraph">
+              Participate in hands-on workshops to learn new technologies and tools.
+            </p>
+          </div>
+          <!-- "Join Community" button -->
+          <a href="https://chat.whatsapp.com/DoLaeuVK7jZ8Eq56e0eIZ" target="_blank">
+            <div class="frame">
+              <div class="text-wrapper-4">Join Community</div>
+            </div>
+          </a>
+
+          <div class="overlap-2">
+            <a
+              href="https://www.linkedin.com/in/dr-rojeena-mathew-1b41a821a/"
+              target="_blank"
+              style="position: relative; z-index: 10; display: block;"
+            >
+              <img
+                class="image"
+                src="https://c.animaapp.com/G9JNllen/img/image-16@2x.png"
+                alt="Profile"
+              />
+            </a>
+
+            <div class="overlap-3">
+              <img
+                class="img"
+                src="https://c.animaapp.com/G9JNllen/img/image-15@2x.png"
+                alt="Profile"
+              />
+              <p class="text-wrapper-16">Director of Training and Competency Development</p>
+            </div>
+            <div class="profile-details">
+              <a href="https://www.linkedin.com/in/dr-rojeena-mathew-1b41a821a/" target="_blank" style="text-decoration: none; color: inherit;"></a>
+              Dr. Rojeena Mathew, the Director of Training & Competency Development at GITAM (Deemed
+              to be University), is one of the current mentors actively guiding the Meta Developer
+              Communities SIG. With a rich background transitioning from a Professor of Material Science
+              and Physics, she is dedicated to enhancing student competencies and preparing them for the
+              evolving technological landscape.<br><br>
+              Her mentorship emphasizes the importance of continuous learning and skill enhancement.
+              Through her innovative approach to training and competency development, Dr. Rojeena
+              continues to shape the future of the SIG, empowering members to embrace challenges and
+              excel in their professional journeys.
+          </div>
+            <div class="heading-2">Dr&nbsp;&nbsp;Rojeena&nbsp;&nbsp;Mathew</div>
+          </div>
+          <div class="overlap-4">
+             <div class="profile-details-uma">
+        Uma Devi Kancharla currently serves as the Senior Director of Career Services and Head of the
+        GITAM Career Guidance Centre (GCGC) at GITAM (Deemed to be University). As a current
+        mentor of the Meta Developer Communities SIG, she brings a wealth of experience and a
+        student-centric vision to the community. Her guidance ensures members are equipped with the
+        skills and competencies required to thrive in today's competitive tech landscape.<br><br>
+        With over 15 years of dedication to career development, Uma Devi's leadership is defined by
+        her focus on professional readiness and holistic growth. Her strategic initiatives continue to
+        drive the SIG toward new horizons, fostering an environment where innovation meets practical
+        application
+    </div>
+            <a
+              href="https://www.linkedin.com/in/umadevi-kancharla-a712b8113/"
+              target="_blank"
+              style="position: relative; z-index: 10; display: block;"
+            >
+              <img
+                class="image"
+                src="https://c.animaapp.com/G9JNllen/img/image-16@2x.png"
+                alt="Profile"
+              />
+            </a>
+
+            <div class="overlap-5">
+              <img
+                class="img"
+                src="assets/uma_devi.jpeg"
+                alt="Profile"
+              />
+              <p class="text-wrapper-16">Senior Director, GCGC</p>
+            </div>
+            <div class="heading-2">Mrs. Uma Devi Kancharla</div>
+          </div>
+          <div class="overlap-6">
+            <a href="https://www.linkedin.com/in/ggurumoorthy" target="_blank" style="position: relative; z-index: 10; display: block;">
+              <img class="image" src="https://c.animaapp.com/G9JNllen/img/image-16@2x.png" alt="Profile"/>
+            </a>
+            <div class="profile-details-guru">
+              Gurmurthy Sir holds a special place as the foundational mentor of the Meta Developer
+              Communities Special Interest Group (SIG). His vision and unwavering support laid the
+              groundwork for the community, fostering a culture of innovation and collaboration. His
+              leadership during the formative years was instrumental in guiding the SIG toward success and
+              empowering members to explore cutting-edge technologies.<br><br>
+              With extensive experience in the tech domain and community building, Gurmurthy Sir’s
+              mentorship was marked by a commitment to nurturing talent and promoting continuous learning.
+              Though no longer an active mentor, his legacy continues to inspire the community as it grows
+              and evolves.
+            </div>
+            
+            <div class="overlap-7">
+              <img class="img" src="assets/gurumoorthy.jpg" alt="Profile"/>
+              <p class="text-wrapper-17">Associate Dean, GCGC</p>
+            </div>
+            <div class="heading-2">Mr. Gurutmoorthy Gangadharan</div>
+          </div>
+
+          <div class="overlap-8">
+            <a href="https://www.linkedin.com/in/vikas-b-6a4476171" target="_blank" style="position: relative; z-index: 10; display: block;">
+              <img class="image" src="https://c.animaapp.com/G9JNllen/img/image-16@2x.png" alt="Profile"/>
+            </a>
+            <div class="profile-details-vikas">
+              Vikas B serves as the Deputy Director of Technology, Tools, and Platforms, playing a crucial role in
+              advancing technological initiatives within the Meta Developer Communities Special Interest Group (SIG).
+              His expertise and strategic vision have significantly contributed to the growth and adoption of
+              innovative tools that empower the community.<br><br>
+              With a strong background in technology management and platform development, Vikas B has been
+              instrumental in ensuring that the SIG remains at the forefront of technological advancements. His
+              dedication to fostering a tech-driven ecosystem continues to inspire members to explore, learn, and
+              implement cutting-edge solutions.
+            </div>
+            
+
+            <div class="overlap-9">
+              <img class="img" src="assets/Vikas.jpg" alt="Profile"/>
+              <p class="text-wrapper-16">Deputy Director of Technology, Tools and Platforms</p>
+            </div>
+            <div class="heading-2">Mr. Vikas B</div>
+          </div>
+
+          <div class="rectangle-2"></div>
+
+          <!-- "Gallery" heading with matching ID -->
+          <div class="text-wrapper-6" id="gallery">Gallery</div>
+          <div class="carousel-container">
+            <button class="carousel-button prev" onclick="moveCarousel(-1)">❮</button>
+            <div class="carousel-track">
+              <img class="carousel-image" src="https://c.animaapp.com/G9JNllen/img/image-17.png" alt="Gallery 1"/>
+              <img class="carousel-image" src="https://c.animaapp.com/G9JNllen/img/image-18.png" alt="Gallery 2"/>
+              <img class="carousel-image" src="assets/im17.jpg" alt="Gallery 4"/>
+              <img class="carousel-image" src="https://c.animaapp.com/G9JNllen/img/image-19@2x.png" alt="Gallery 5"/>
+              <img class="carousel-image" src="assets/im10.jpg" alt="Gallery 6"/>
+              <img class="carousel-image" src="assets/im11.jpg" alt="Gallery 7"/>
+              <img class="carousel-image" src="assets/im12.jpg" alt="Gallery 8"/>
+              <img class="carousel-image" src="assets/im13.jpg" alt="Gallery 9"/>
+              <img class="carousel-image" src="assets/im14.jpg" alt="Gallery 10"/>
+              <img class="carousel-image" src="assets/im15.jpg" alt="Gallery 11"/>
+              <img class="carousel-image" src="assets/im16.jpg" alt="Gallery 12"/>
+            </div>
+            <button class="carousel-button next" onclick="moveCarousel(1)">❯</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Placeholder sections for "Events", "Domains", and "Our Team" 
+         so the nav bar links won't break -->
+    <!-- Events Section -->
+    <div class="blank-section" id="events">
+      <div class="text-wrapper">EVENTS</div>
+      
+      <!-- Carousel Section -->
+      <div class="carousel">
+        <!-- Event 1 -->  
+        <div class="carousel-item">
+          <div class="event-date">10<br />AUG</div>
+          <img src="assets/Poster.png" />
+          <div class="info-box">
+            📅 <b>Date:</b> 10th AUG<br />
+            🎯 <b>Topic:</b> Chronoverse
+            <p class="event-description">Join to solve exciting coding challenges,Space themed challenges!</p>
+          </div>
+          <a href="https://lu.ma/j5xdu063" target="_blank" class="register-button">View</a>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="carousel-item">
+          <div class="event-date">21/22<br />AUG</div>
+          <img src="assets/TV Poster.png" />
+          <div class="info-box">
+            📅 <b>Date:</b> 21 and 22 AUG<br />
+            🎯 <b>Topic:</b> DECODING EMOTIONS
+            <p class="event-description">Exciting collab between ACM and MDC register quick!</p>
+          </div>
+          <a href="https://lu.ma/md9iwsc2" target="_blank" class="register-button">View</a>
+        </div>
+
+        <div class="carousel-item">
+          <div class="event-date">28/29<br />OCT</div>
+          <img src="assets/F1xMDC .jpg" />
+          <div class="info-box">
+            📅 <b>Date:</b> 28 and 29 OCT<br />
+            🎯 <b>Topic:</b> F1 X MDC
+            <p class="event-description">Tech talks,stalls,and live screening of the F1 RACE!</p>
+          </div>
+          <a href="https://lu.ma/wwkuncjj" target="_blank" class="register-button">View</a>
+        </div>
+    
+        <div class="carousel-item">
+          <div class="event-date">26<br />SEP</div>
+          <img src="assets/Career Sprint.jpg" />
+          <div class="info-box">
+            📅 <b>Date:</b> 26 SEP<br />
+            🎯 <b>Topic:</b> Career Sprint
+            <p class="event-description">Get a reality check about your passion</p>
+          </div>
+          <a href="https://lu.ma/ir15lr2r" target="_blank" class="register-button">View</a>
+        </div>
+    
+        <div class="carousel-item">
+          <div class="event-date">28/29<br />OCT</div>
+          <img src="assets/AI Wizard.jpg" />
+          <div class="info-box">
+            📅 <b>Date:</b> 28th and 29 OCT<br />
+            🎯 <b>Topic:</b> AI WIZARDS
+            <p class="event-description">Discover the real power of prompts while using AI.</p>
+          </div>
+          <a href="https://lu.ma/g3eobos7" target="_blank" class="register-button">View</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="executive" id="domains">
+      <!-- Executive Section -->
+      <section class="executive">
+          <h1>Executive Body</h1>
+          <div class="members">
+              <div class="member">
+                  <div class="outer-ellipse"></div>
+                  <div class="inner-ellipse"></div>
+                  <div class="image-container">
+                      <div class="rotation-container">
+                          <img src="assets/image 23.jpg" class="back-image" alt="background">
+                          <a href="https://www.linkedin.com/in/revanthkatari" target="_blank">
+                              <img src="assets/image.png" class="front-image" alt="member">
+                          </a>
+                      </div>
+                  </div>                
+                  <h3>Revanth Katari</h3>
+                  <p>President</p>
+              </div>
+  
+              <div class="member">
+                  <div class="outer-ellipse"></div>
+                  <div class="inner-ellipse"></div>
+                  <div class="image-container">
+                      <div class="rotation-container">
+                          <img src="assets/IMG_5654 - NADAMUNI VENKATA SAI DHRUV VU21CSEN0300080.jpeg" class="back-image" alt="background">
+                          <a href="https://www.linkedin.com/in/dhruvnvs/" target="_blank">
+                              <img src="assets/image.png" class="front-image" alt="member">
+                          </a>
+                      </div>
+                  </div>                
+                  <h3>Nadamuni Venkata Sai Dhruv</h3>
+                  <p>Vice President</p>
+              </div>
+  
+              <div class="member">
+                  <div class="outer-ellipse"></div>
+                  <div class="inner-ellipse"></div>
+                  <div class="image-container">
+                      <div class="rotation-container">
+                          <img src="assets/IMG_20240130_111407 - Nitish Raj 22135396101.jpg" class="back-image" alt="background">
+                          <a href="https://www.linkedin.com/in/vnr-nitish/" target="_blank">
+                              <img src="assets/image.png" class="front-image" alt="member">
+                          </a>
+                      </div>
+                  </div>                
+                  <h3>Vinnakota Nitish Raj</h3>
+                  <p>Secretary</p>
+              </div>
+  
+              <div class="member">
+                  <div class="outer-ellipse"></div>
+                  <div class="inner-ellipse"></div>
+                  <div class="image-container">
+                      <div class="rotation-container">
+                          <img src="assets/IMG_20240618_215746 - Phaniharam Suraj Subramaniam 22114892101.jpg" class="back-image" alt="background">
+                          <a href="https://www.linkedin.com/in/suraj-phaniharam-47b44525b/" target="_blank">
+                              <img src="assets/image.png" class="front-image" alt="member">
+                          </a>
+                      </div>
+                  </div>                
+                  <h3>Phaniharam Suraj Subramaniam</h3>
+                  <p>Head of Operations</p>
+              </div>
+  
+              <div class="member">
+                  <div class="outer-ellipse"></div>
+                  <div class="inner-ellipse"></div>
+                  <div class="image-container">
+                      <div class="rotation-container">
+                          <img src="assets/khushi  .jpg" class="back-image" alt="background">
+                          <a href="https://www.linkedin.com/in/khushi-bohra-357baa281/" target="_blank">
+                              <img src="assets/image.png" class="front-image" alt="member">
+                          </a>
+                      </div>
+                  </div>                
+                  <h3>Khushi Bohra</h3>
+                  <p>Technical Head</p>
+              </div>
+  
+              <div class="member">
+                  <div class="outer-ellipse"></div>
+                  <div class="inner-ellipse"></div>
+                  <div class="image-container">
+                      <div class="rotation-container">
+                          <img src="assets/T_1000017973_58467755 - Baishali Baruah 22117877101.png" class="back-image" alt="background">
+                          <a href="https://www.linkedin.com/in/baishali-baruah-b84022261/" target="_blank">
+                              <img src="assets/image.png" class="front-image" alt="member">
+                          </a>
+                      </div>
+                  </div>                
+                  <h3>Baishali Baruah</h3>
+                  <p>Creative Head</p>
+              </div>
+          </div>
+      </section>
+  </div>
+</div>
+<!-- ... existing code ... -->
+
+<div class="core" id="our-team">
+  <link rel="stylesheet" href="ct_styles.css">
+  <script src="ct_script.js"></script>
+
+  <div class="background"></div>
+
+  <section class="executive">
+    <h1>Core Team</h1>
+
+    <div class="domain">
+      <!-- Domain buttons -->
+      <div class="dataverse-container">
+        <button class="dataverse" onclick="showSection('mdv')">
+          <span>Data Verse</span>
+        </button>
+      </div>
+      <div class="webarcs-container">
+        <button class="webarcs" onclick="showSection('mwa')">
+          <span>Web Arcs</span>
+        </button>
+      </div>
+      <div class="pr-container">
+        <button class="pr" onclick="showSection('mpr')">
+          <span>PR</span>
+        </button>
+      </div>
+      <div class="uiux-container">
+        <button class="uiux" onclick="showSection('muiux')">
+          <span>UI/UX</span>
+        </button>
+      </div>
+      <div class="content-container">
+        <button class="content" onclick="showSection('mct')">
+          <span>Content</span>
+        </button>
+      </div>
+      <div class="photography-container">
+        <button class="photography" onclick="showSection('mpg')">
+          <span>Photography</span>
+        </button>
+      </div>
+      <div class="cp-container">
+        <button class="cp" onclick="showSection('mcp')">
+          <span>Competitive Programming</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Members sections -->
+    <div class="members" id="mcp">
+      <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/cp/Ravali.jpg" class="back-image" alt="background">
+                <a href="http://www.linkedin.com/in/ravali-sree-harshini-cherukupalli-979310250" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3> C. Ravali Sree Harshini </h3>
+        <p>Domain Lead</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/cp/mohith mohithpilli.jpg" class="back-image" alt="background">
+                <a href="???" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Mohith Pilli</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/cp/Lokdeep.jpg" class="back-image" alt="background">
+                <a href="http://www.linkedin.com/in/adimulam-lokdeep" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Lokdeep Adimulam</h3>
+        <p>Member</p>
+    </div>
+    
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/cp/image.png" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/gaganrachakonda?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Rachakonda V S S Gagan</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/cp/Manchem Manmohan.jpg" class="back-image" alt="background">
+                <a href="http://www.linkedin.com/in/manmohan-manchem" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Manchem Manmohan</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/cp/Ankitha.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/ankita-m-kumar-b6a624327" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Ankita M Kumar</h3>
+        <p>Member</p>
+    </div>
+</div>
+
+<!-- dv members -->
+  <div class="members" id="mdv">
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/dv/Yash.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/ykarnani07/" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3> Yash Karnani </h3>
+        <p>Domain Lead</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/dv/IMG_8957.JPG" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/sai-sindhuja-998682293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Mathala Sai Sindhuja</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/dv/IMG_20230923_105243_512 - Mansi Singh 22177232101.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/mansi-singh-rajput-755332257?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Mansi Singh</h3>
+        <p>Member</p>
+    </div>
+    
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/dv/Nandan.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/jothisk-nandan-palla-121368293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Palla Jothisk Nandan</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/dv/Raj Kunwar.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/raj-kunwar25" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Raj Kunwar</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/dv/Ritvik.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/marupudi-ritvik-38613a293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Marupudi Ritvik</h3>
+        <p>Member</p>
+    </div>
+  </div>
+
+<!-- ct members -->
+  <div class="members" id="mct">
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets/ct/Karthikeya.jpeg" class="back-image" alt="background">
+                <a href="http://linkedin.com/in/karthikeya-battula-46290pr" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3> Battula Karthikeya </h3>
+        <p>Domain Lead</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\ct\Abhiram.jpg" class="back-image" alt="background">
+                <a href="http://www.linkedin.com/in/y-abhiram" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Y Abhiram</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\ct\Anirudh.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/challa-venkata-anirudh-2607s/" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Challa Venkata Anirudh</h3>
+        <p>Member</p>
+    </div>
+    
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\ct\pcc-01.jpg - mogasala mogasalasunaina.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/sunaina-mogasala-70582b293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Mogasala Sunaina </h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\ct\Praseeda.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/saipraseedaatluri" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Sai Praseeda Atluri</h3>
+        <p>Member</p>
+    </div>
+  </div>
+
+<!-- wa members -->
+  <div class="members" id="mwa">
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\wa\Sudheer Sahu.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/sudheer-sahu-97881824b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3> Sudheer Sahu</h3>
+        <p>Domain Lead</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\wa\mohantanuj mohantanujponasanapalli.jpeg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/mohan-tanuj-09b4221a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Mohan Tanuj Ponasanapalli</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\wa\Koyena.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/koyena-dutta-6b8bb5250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Koyena Dutta</h3>
+        <p>Member</p>
+    </div>
+    
+    
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\wa\Dhruv Sivan.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/dhruv-sivan-54232a324" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Dhruv Sivan</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\wa\Namish.jpg" class="back-image" alt="background">
+                <a href="http://www.linkedin.com/in/namish-p-69a59b272" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Padipurakkal Namish </h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\wa\Velaga Doondi Sampreetha.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/velaga-doondi-sampreetha-176523343/" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>V. Doondi Sampreetha</h3>
+        <p>Member</p>
+    </div>
+
+
+<div class="member">
+    <div class="outer-ellipse"></div>
+    <div class="inner-ellipse"></div>
+    <div class="image-container">
+        <div class="rotation-container">
+            <img src="assets\wa\Sai Teja.jpeg" class="back-image" alt="background">
+            <a href="https://www.linkedin.com/in/pallav-sai-teja-b3000326b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+                <img src="assets/image.png" class="front-image" alt="member">
+            </a>
+        </div>
+    </div>  
+    <h3>Putti Pallav Sai Teja</h3>
+    <p>Member</p>
+</div>
+<div class="member">
+    <div class="outer-ellipse"></div>
+    <div class="inner-ellipse"></div>
+    <div class="image-container">
+        <div class="rotation-container">
+            <img src="assets/wa/Snehal.jpg" class="back-image" alt="background">
+            <a href="https://www.linkedin.com/in/snehal-andavarapu-83b3b5293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                <img src="assets/image.png" class="front-image" alt="member">
+            </a>
+        </div>
+    </div>  
+    <h3>Snehal Andavarapu</h3>
+    <p>Member</p>
+</div>
+  </div>
+
+<!-- pr members -->
+  <div class="members" id="mpr">
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\pr\Janaki sai samanvitha.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/motaparthi-janaki-sai-samanvitha-201242293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3> Motaparthi Janaki Sai Samanvitha </h3>
+        <p>Domain Lead</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\pr\20250114_141547 - Pia Solanki Jain 2024010410.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/pia-solanki-jain-882908311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Pia Solanki Jain </h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\pr\IMG-20250103-WA0337 - MOHAMED MAHABOOB ALI 2024006642.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/mahaboob-ali-mohamed-900198345?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Mohamed Mahaboob Ali </h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\pr\Ishita.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/ishitagupta0811/" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Ishita Gupta</h3>
+        <p>Member</p>
+    </div>
+  </div>
+
+<!-- uiux members -->
+  <div class="members" id="muiux">
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\uiux\Surya Sanjana.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/surya-sanjana-kesapragada" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3> Kesapragada Surya Sanjana  </h3>
+        <p>Domain Lead</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\uiux\Satwika.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/sathwika-penmatsa/" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Penmatsa Sathwika</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\uiux\Priyanshu.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/priyanshu-p-behera-14931a324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Priyanshu P Behera</h3>
+        <p>Member</p>
+    </div>
+    
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\uiux\IMG-20241208-WA0110 - Shreya Karmakar 22178398101.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/shreya-karmakar-110b57259" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Shreya Karmakar</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\uiux\IMG_7035 - sravani sravanikalisetty.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/sravani-kalisetty-090730293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Sravani kalisetty</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\uiux\Bharath.jpeg" class="back-image" alt="background">
+                <a href="http://www.linkedin.com/in/bb-bollineni" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>B Bharath</h3>
+        <p>Member</p>
+    </div>
+  </div>
+
+<!-- pg members -->
+  <div class="members" id="mpg">
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\pg\Sahithi.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/sahithi-mounika-patoju-004488337?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3> Sahithi Mounika Patoju  </h3>
+        <p>Domain Lead</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\pg\Screenshot_20250124_200900_Gallery - rakshak rakshakboni.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/boni-rakshak-15b727355?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>B.Rakshak</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\pg\V D S S S Sritej.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/v-d-s-s-s-sritej-b5a196295/" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>V D S S S Sritej </h3>
+        <p>Member</p>
+    </div>
+    
+    <div class="member">
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\pg\Bhagavan Venkata Sri Sai Apuroop.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/apuroop-alapati?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Bhagavan Venkata Sri Sai Apuroop Alapati</h3>
+        <p>Member</p>
+    </div>
+
+    <div class="member" >
+        <div class="outer-ellipse"></div>
+        <div class="inner-ellipse"></div>
+        <div class="image-container">
+            <div class="rotation-container">
+                <img src="assets\pg\IMG-20250124-WA0002 - rohanaditya rohanadityaommi.jpg" class="back-image" alt="background">
+                <a href="https://www.linkedin.com/in/rohanaditya-rohanadityaommi-796033356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="assets/image.png" class="front-image" alt="member">
+                </a>
+            </div>
+        </div>  
+        <h3>Ommi Rohan Aditya </h3>
+        <p>Member</p>
+    </div>
+  </div>
+
+ 
+
+</section>
+<div class="blank-section">
+  <style>
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 20px 0;
+      gap: 20px;
+      margin: 40px auto;
+      width: 80%;
+      max-width: 1200px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-item {
+      position: relative;
+      min-width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      background-color: #f9fdfe;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: start;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .info-box {
+      position: absolute;
+      bottom: 60px;
+      left: 10px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #ffffff;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .carousel-item:hover .info-box {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .event-date {
+      font-family: "Poppins", Helvetica;
+      font-weight: 700;
+      color: #000000;
+      font-size: 32px;
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .register-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      background: linear-gradient(90deg, rgba(7, 72, 160, 1) 0%, rgba(20, 47, 86, 1) 100%);
+      color: #ffffff;
+      border-radius: 50px;
+      text-decoration: none;
+      font-family: "Inter", Helvetica;
+      font-weight: 500;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .text-wrapper {
+      font-family: "Poppins", Helvetica;
+      font-weight: 700;
+      color: #081F5C;
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .event-description {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #f0f0f0;
+      line-height: 1.4;
+    }
+  </style> 
+</div>
+<head>
+  <title>
+   MDC
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+   body {
+     font-family: 'Poppins', sans-serif;
+     background-color: #f9fcff;
+   }
+   h10, h20, h30 {
+     font-weight: 700;
+     font-size: 35px;
+     line-height: 100%;
+     letter-spacing: 0%;
+     text-align: center;
+     vertical-align: middle;
+     color: #091F5B;
+   }
+
+   h30 {
+     font-weight: 700;
+     font-size: 30px;
+     line-height: 100%;
+     letter-spacing: 0%;
+     text-align: center;
+     vertical-align: middle;
+     color: #091F5B;
+   }
+   .main-title {
+     font-size: 40px; /* Larger font size for main title */
+   }
+
+   .text-custom {
+    color: #081f5c;
+   }
+   .bg-custom {
+    background-color: #081f5c;
+   }
+   .bg-gradient-custom {
+    background: linear-gradient(to right, #081f5c, #3a4d8f);
+   }
+   .bg-page {
+    background-color: #f6fbfe;
+   }
+   .heading-custom {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 36px; 
+    line-height: 100%;
+    letter-spacing: 0%;
+    padding-bottom: 15px;
+    display: block;
+   
+   }
+   .bg-gradient-faq {
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+   }
+  </style>
+ </head>
+ <body>
+  <div class="text-center py-8" id="technical-domains">
+   <h10 class="main-title">
+    DOMAINS
+   </h10>
+  </div>
+  <div class="text-center py-4">
+   <h20>
+    Technical Domains
+   </h20>
+  </div>
+  <div class="flex flex-wrap justify-center gap-8 px-4">
+   <div class="bg-blue-50 rounded-lg p-4 w-64">
+    <img alt="Competetive Programming" class="mx-auto mb-4" height="200" src="assets/cp.png" width="200"/>
+    <h30>
+     Competitive Programming
+    </h30>
+   </div>
+   <div class="bg-blue-50 rounded-lg p-4 w-64">
+    <img alt="WebArc" class="mx-auto mb-4" height="200" src="assets/webarc.png" width="200"/>
+    <h30>
+     WebArc
+    </h30>
+   </div>
+   <div class="bg-blue-50 rounded-lg p-4 w-64">
+    <img alt="DataVerse" class="mx-auto mb-4" height="200" src="assets/dataverse.png" width="200"/>
+    <h30>
+     DataVerse
+    </h30>
+   </div>
+  </div>
+  <div class="text-center py-8">
+   <h20>
+    Non Technical Domains
+   </h20>
+  </div>
+  <div class="flex flex-wrap justify-center gap-8 px-4">
+   <div class="bg-blue-50 rounded-lg p-4 w-64">
+    <img alt="Photography" class="mx-auto mb-4" height="200" src="assets/photography.png" width="200"/>
+    <h30>
+     Photography
+    </h30>
+   </div>
+   <div class="bg-blue-50 rounded-lg p-4 w-64">
+    <img alt="UI/UX" class="mx-auto mb-4" height="200" src="assets/1234.jpg" width="200"/>
+    <h30>
+     UI/UX
+    </h30>
+   </div>
+   <div class="bg-blue-50 rounded-lg p-4 w-64">
+    <img alt="Content" height="200" src="assets/content.png" width="200"/>
+    <h30>
+     Content Writing
+    </h30>
+   </div>
+   <div class="bg-blue-50 rounded-lg p-4 w-64">
+    <img alt="Public Relations" class="mx-auto mb-4" height="100" src="assets/pr.png" width="200"/>
+    <h30>
+     Public Relations
+    </h30>
+   </div>
+  </div>
+ </body>
+
+ <br><br><br><br>
+
+ <body class="bg-page">
+    <div class="container mx-auto p-4">
+     <h10 class="heading-custom text-center mb-8 text-custom">
+      Frequently Asked Questions
+     </h10>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+       <div class="bg-gradient-faq p-4 rounded-full shadow-md flex justify-between items-center cursor-pointer" onclick="toggleFaq(1)">
+        <span class="text-custom">
+         How can I join the Meta Developer Communities?
+        </span>
+        <i class="fas fa-plus text-custom" id="icon-1">
+        </i>
+       </div>
+       <div class="hidden p-4" id="faq-1">
+        <p class="text-custom">
+         You can join the Meta Developer Communities by visiting our website and filling out the membership form. We also have an orientation session at the beginning of each semester.
+        </p>
+       </div>
+      </div>
+      <div>
+       <div class="bg-gradient-faq p-4 rounded-full shadow-md flex justify-between items-center cursor-pointer" onclick="toggleFaq(2)">
+        <span class="text-custom">
+         What activities does the Meta Developer Communities organize?
+        </span>
+        <i class="fas fa-plus text-custom" id="icon-2">
+        </i>
+       </div>
+       <div class="hidden p-4" id="faq-2">
+        <p class="text-custom">
+         The Meta Developer Communities organize a variety of activities including coding workshops, hackathons, guest lectures from industry professionals, and collaborative projects.
+        </p>
+       </div>
+      </div>
+      <div>
+       <div class="bg-gradient-faq p-4 rounded-full shadow-md flex justify-between items-center cursor-pointer" onclick="toggleFaq(3)">
+        <span class="text-custom">
+         Do I need prior experience to join the Meta Developer Communities?
+        </span>
+        <i class="fas fa-plus text-custom" id="icon-3">
+        </i>
+       </div>
+       <div class="hidden p-4" id="faq-3">
+        <p class="text-custom">
+         No prior experience is necessary to join the Meta Developer Communities. We welcome developers of all skill levels and provide resources to help you learn and grow.
+        </p>
+       </div>
+      </div>
+      <div>
+       <div class="bg-gradient-faq p-4 rounded-full shadow-md flex justify-between items-center cursor-pointer" onclick="toggleFaq(4)">
+        <span class="text-custom">
+         How often does the Meta Developer Communities meet?
+        </span>
+        <i class="fas fa-plus text-custom" id="icon-4">
+        </i>
+       </div>
+       <div class="hidden p-4" id="faq-4">
+        <p class="text-custom">
+        The Core team meets once every month.  
+       </p>
+       </div>
+      </div>
+      <div>
+       <div class="bg-gradient-faq p-4 rounded-full shadow-md flex justify-between items-center cursor-pointer" onclick="toggleFaq(5)">
+        <span class="text-custom">
+         Are there any membership fees for the Meta Developer Communities?
+        </span>
+        <i class="fas fa-plus text-custom" id="icon-5">
+        </i>
+       </div>
+       <div class="hidden p-4" id="faq-5">
+        <p class="text-custom">
+         There are no membership fees to join the Meta Developer Communities. 
+        </p>
+       </div>
+      </div>
+      <div>
+       <div class="bg-gradient-faq p-4 rounded-full shadow-md flex justify-between items-center cursor-pointer" onclick="toggleFaq(6)">
+        <span class="text-custom">
+         How can I stay updated on Meta Developer Communities events?
+        </span>
+        <i class="fas fa-plus text-custom" id="icon-6">
+        </i>
+       </div>
+       <div class="hidden p-4" id="faq-6">
+        <p class="text-custom">
+         You can stay updated on Meta Developer Communities events by following us on Instagram and on LinkedIn.
+        </p>
+       </div>
+      </div>
+      <div>
+       <div class="bg-gradient-faq p-4 rounded-full shadow-md flex justify-between items-center cursor-pointer" onclick="toggleFaq(7)">
+        <span class="text-custom">
+         Can I suggest new activities or projects for the Meta Developer Communities?
+        </span>
+        <i class="fas fa-plus text-custom" id="icon-7">
+        </i>
+       </div>
+       <div class="hidden p-4" id="faq-7">
+        <p class="text-custom">
+         Absolutely! We encourage members to suggest new activities or projects. You can share your ideas during meetings or contact us through our website.
+        </p>
+       </div>
+      </div>
+      <div>
+       <div class="bg-gradient-faq p-4 rounded-full shadow-md flex justify-between items-center cursor-pointer" onclick="toggleFaq(8)">
+        <span class="text-custom">
+         How can I become the president of Meta Developer Communities ?
+        </span>
+        <i class="fas fa-plus text-custom" id="icon-8">
+        </i>
+       </div>
+       <div class="hidden p-4" id="faq-8">
+        <p class="text-custom">
+         To become the president of Meta Developer Communities, you can apply during our annual elections held at the end of the even semester. Keep an eye out for announcements regarding the application process.
+        </p>
+       </div>
+      </div>
+     </div>
+
+     <br><br><br><br>
+     
+     <h20 class="heading-custom text-center mt-16 mb-8 text-custom uppercase" id="contact-section">
+      Contact Us
+     </h20>
+     <div class="mt-8 flex flex-col items-center">
+      <div class="flex items-start mb-8 w-full max-w-4xl">
+       <div class="flex flex-col items-center mr-12">
+        <img alt="GITAM logo" class="mb-4" height="150" src="assets/gitam-logo.png" width="150"/>
+        <img alt="MDC logo" height="150" src="assets/mdc.jpg" width="150"/>
+       </div>
+       <form class="w-full">
+        <div class="flex flex-wrap -mx-3 mb-6">
+         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="First Name" type="text"/>
+         </div>
+         <div class="w-full md:w-1/2 px-3">
+          <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Last Name" type="text"/>
+         </div>
+        </div>
+        <div class="mb-6">
+         <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="yourmail@gitam.in" type="email"/>
+        </div>
+        <div class="mb-6">
+         <textarea class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="your message"></textarea>
+        </div>
+        <div class="flex justify-center">
+         <button class="bg-gradient-custom hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="button">
+          SUBMIT
+         </button>
+        </div>
+       </form>
+      </div>
+      <div class="mt-8 flex space-x-4">
+          <a class="text-custom hover:text-gray-800 text-3xl" href="https://www.linkedin.com/company/meta-developer-communities-gitam-visakhapatnam/" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin"></i>
+          </a>
+          <a class="text-custom hover:text-gray-800 text-3xl" href="https://www.instagram.com/mdc_gitam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-instagram"></i>
+          </a>
+      </div>
+      
+     </div>
+    </div>
+    <script>
+     function toggleFaq(id) {
+      const faq = document.getElementById(`faq-${id}`);
+      const icon = document.getElementById(`icon-${id}`);
+      if (faq.classList.contains('hidden')) {
+       faq.classList.remove('hidden');
+       icon.classList.remove('fa-plus');
+       icon.classList.add('fa-minus');
+      } else {
+       faq.classList.add('hidden');
+       icon.classList.remove('fa-minus');
+       icon.classList.add('fa-plus');
+      }
+     }
+    let currentIndex = 0;
+    const track = document.querySelector('.carousel-track');
+    const images = document.querySelectorAll('.carousel-image');
+    const totalImages = images.length;
+
+    function moveCarousel(direction) {
+    currentIndex = (currentIndex + direction + totalImages) % totalImages;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+setInterval(() => moveCarousel(1), 5000);
+    </script>
+   </body>
+  </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let members = document.querySelectorAll(".rotation-container");
+  
+      members.forEach((member) => {
+          // Ensure back image is visible on refresh
+          member.classList.remove("rotate-180");
+          member.dataset.rotated = "false"; // Track rotation state
+  
+          member.addEventListener("click", function () {
+              if (member.dataset.rotated === "false") {
+                  // First click: Rotate 180 degrees
+                  member.classList.add("rotate-180");
+                  member.dataset.rotated = "true"; // Mark as rotated
+              } else {
+                  // Second click: Redirect to LinkedIn
+                  let frontLink = member.querySelector("a");
+                  if (frontLink) {
+                      window.open(frontLink.href, "_blank"); // Open LinkedIn in new tab
+                  }
+              }
+          });
+      });
+  });
+  function showSection(sectionId) { 
+    // Hide all sections first
+    let allSections = document.querySelectorAll(".members");
+    allSections.forEach(section => {
+        section.classList.remove("show");
+    });
+
+    // Show only the selected section
+    document.getElementById(sectionId).classList.add("show");
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let members = document.querySelectorAll(".rotation-container");
+
+    members.forEach((member) => {
+        // Ensure back image is visible on refresh
+        member.classList.remove("rotate-180");
+        member.dataset.rotated = "false"; // Track rotation state
+
+        member.addEventListener("click", function () {
+            if (member.dataset.rotated === "false") {
+                // First click: Rotate 180 degrees
+                member.classList.add("rotate-180");
+                member.dataset.rotated = "true"; // Mark as rotated
+            } else {
+                // Second click: Redirect to LinkedIn
+                let frontLink = member.querySelector("a");
+                if (frontLink) {
+                    window.open(frontLink.href, "_blank"); // Open LinkedIn in new tab
+                }
+            }
+        });
+    });
+});
+
+</script>
+  </body>
+

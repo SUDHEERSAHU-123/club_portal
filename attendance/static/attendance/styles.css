@@ -11,7 +11,7 @@ h1 {
     color: #333; /* Dark grey */
     text-align: center;
     padding: 20px;
-    background-color: #4caf50; /* Green */
+    background-color: blue; /* Green */
     color: white;
 }
 
@@ -48,11 +48,11 @@ a {
     text-decoration: none;
     padding: 10px 15px;
     color: white;
-    background-color: #4caf50; /* Green */
+    background-color: skyblue; /* Green */
     border-radius: 5px;
     margin: 5px;
 }
 
 a:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color:blue; /* Darker green on hover */
 }

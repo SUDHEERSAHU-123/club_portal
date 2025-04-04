@@ -8,20 +8,25 @@ from .models import Event, Attendance
 
 from datetime import date
 # Function to create an event
+
 def admin_login(request):
     print("Admin Login View is called!")  # Debugging line
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST.get('username')  # Use .get() to avoid errors
+        password = request.POST.get('password')
+        
+        # Authenticate the user
         user = authenticate(request, username=username, password=password)
+        
         if user is not None and user.is_staff:  # Allow only staff/admin users
             login(request, user)
-            return redirect('/admin/')  # Redirect to the admin panel
+            return redirect('view_events')  # Redirect to the events page
         elif user is not None and not user.is_staff:
             messages.error(request, "You do not have admin privileges.")
         else:
-            messages.error(request, "Invalid username or password.")
-    return render(request, 'attendance/admin_login.html')
+            messages.error(request, "Invalid username or password.")  # Handle invalid credentials
+            return render(request, 'attendance/admin_login.html')  # Reload with error
+    return render(request, 'attendance/admin_login.html')        
 
 def create_event(request):
     if request.method == 'POST':
